@@ -27,10 +27,10 @@ def get_positive_number(question):
             print("Please enter a valid number.")
 
 
-def get_number_of_ingredients():
+def get_positive_whole_number(question):
     while True:
         try:
-            number = int(input("How many ingredients are in the recipe? "))
+            number = int(input(question))
 
             if number > 0:
                 return number
@@ -45,8 +45,10 @@ def main():
     print("----------------------")
 
     recipe_name = get_text("Recipe name: ")
-    portions = get_positive_number("Number of portions: ")
-    number_of_ingredients = get_number_of_ingredients()
+    portions = get_positive_whole_number("Number of portions: ")
+    number_of_ingredients = get_positive_whole_number(
+        "How many ingredients are in the recipe? "
+    )
 
     ingredients = []
     total_cost = 0
