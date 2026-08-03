@@ -18,6 +18,16 @@ def calculate_cost_per_portion(total_cost, portions):
     return cost_per_portion
 
 
+def find_most_expensive_ingredient(ingredients):
+    most_expensive = ingredients[0]
+
+    for ingredient in ingredients:
+        if ingredient["cost"] > most_expensive["cost"]:
+            most_expensive = ingredient
+
+    return most_expensive
+
+
 def get_text(question):
     while True:
         answer = input(question).strip()
@@ -96,6 +106,7 @@ def main():
 
     total_cost = calculate_total_cost(ingredients)
     cost_per_portion = calculate_cost_per_portion(total_cost, portions)
+    most_expensive = find_most_expensive_ingredient(ingredients)
 
     print("\nRecipe Summary")
     print("--------------")
@@ -112,6 +123,10 @@ def main():
 
     print(f"\nTotal recipe cost: {total_cost:.2f} DKK")
     print(f"Cost per portion: {cost_per_portion:.2f} DKK")
+    print(
+        f"Most expensive ingredient: {most_expensive['name']} "
+        f"({most_expensive['cost']:.2f} DKK)"
+    )
 
 
 if __name__ == "__main__":
