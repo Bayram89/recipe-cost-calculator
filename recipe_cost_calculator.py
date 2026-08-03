@@ -4,6 +4,16 @@ def calculate_ingredient_cost(package_price, package_quantity, quantity_used):
     return ingredient_cost
 
 
+def get_text(question):
+    while True:
+        answer = input(question).strip()
+
+        if answer != "":
+            return answer
+
+        print("Please enter a value.")
+
+
 def get_positive_number(question):
     while True:
         try:
@@ -34,7 +44,7 @@ def main():
     print("Recipe Cost Calculator")
     print("----------------------")
 
-    recipe_name = input("Recipe name: ")
+    recipe_name = get_text("Recipe name: ")
     portions = get_positive_number("Number of portions: ")
     number_of_ingredients = get_number_of_ingredients()
 
@@ -44,8 +54,8 @@ def main():
     for number in range(number_of_ingredients):
         print(f"\nIngredient {number + 1}")
 
-        ingredient_name = input("Ingredient name: ")
-        unit = input("Unit (for example g, ml or piece): ")
+        ingredient_name = get_text("Ingredient name: ")
+        unit = get_text("Unit (for example g, ml or piece): ")
         package_quantity = get_positive_number(
             f"Quantity in the package ({unit}): "
         )
