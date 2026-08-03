@@ -27,6 +27,9 @@ together.
 - Calculate the cost of each ingredient used
 - Calculate the total recipe cost
 - Calculate the cost per portion
+- Show the most expensive ingredient
+- Prevent empty recipe names, ingredient names, and units
+- Accept only whole numbers for portions and ingredient counts
 - Handle invalid number input without crashing
 - Accept both commas and full stops in decimal numbers
 
@@ -56,6 +59,14 @@ The tests use pytest:
 ```bash
 python -m pytest
 ```
+
+The project has six tests for ingredient costs, total cost, cost per portion,
+and the most expensive ingredient.
+
+## Learning notes
+
+See [LEARNING_NOTES.md](LEARNING_NOTES.md) for a simple explanation
+of the formula, data structures, functions, input validation, and tests.
 
 ## Limitations
 
