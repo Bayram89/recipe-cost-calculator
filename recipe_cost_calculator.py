@@ -13,6 +13,11 @@ def calculate_total_cost(ingredients):
     return total_cost
 
 
+def calculate_cost_per_portion(total_cost, portions):
+    cost_per_portion = total_cost / portions
+    return cost_per_portion
+
+
 def get_text(question):
     while True:
         answer = input(question).strip()
@@ -90,7 +95,7 @@ def main():
         ingredients.append(ingredient)
 
     total_cost = calculate_total_cost(ingredients)
-    cost_per_portion = total_cost / portions
+    cost_per_portion = calculate_cost_per_portion(total_cost, portions)
 
     print("\nRecipe Summary")
     print("--------------")
