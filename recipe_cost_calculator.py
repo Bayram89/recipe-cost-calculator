@@ -4,6 +4,15 @@ def calculate_ingredient_cost(package_price, package_quantity, quantity_used):
     return ingredient_cost
 
 
+def calculate_total_cost(ingredients):
+    total_cost = 0
+
+    for ingredient in ingredients:
+        total_cost = total_cost + ingredient["cost"]
+
+    return total_cost
+
+
 def get_text(question):
     while True:
         answer = input(question).strip()
@@ -51,7 +60,6 @@ def main():
     )
 
     ingredients = []
-    total_cost = 0
 
     for number in range(number_of_ingredients):
         print(f"\nIngredient {number + 1}")
@@ -80,8 +88,8 @@ def main():
         }
 
         ingredients.append(ingredient)
-        total_cost = total_cost + ingredient_cost
 
+    total_cost = calculate_total_cost(ingredients)
     cost_per_portion = total_cost / portions
 
     print("\nRecipe Summary")
