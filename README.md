@@ -1,12 +1,8 @@
 # Recipe Cost Calculator
 
-A beginner-friendly command-line program written in Python. It calculates how
-much the ingredients used in a recipe cost, the total recipe cost, and the cost
-per portion.
+A Python command-line tool for calculating ingredient usage costs, total recipe cost and cost per portion.
 
-I built this project while learning Python fundamentals. The idea is connected
-to a real foodservice problem: a recipe usually uses only part of an ingredient
-package, so the cost of the amount used must be calculated.
+The project is based on a common foodservice calculation: a recipe normally uses only part of an ingredient package, so its cost must be calculated from the package quantity, package price and quantity used.
 
 ## Example calculation
 
@@ -33,16 +29,14 @@ together.
 - Handle invalid number input without crashing
 - Accept both commas and full stops in decimal numbers
 
-## Python concepts practised
+## Technical overview
 
-- Variables and basic data types
-- User input and printed output
-- Mathematical calculations
-- `if` statements
-- `for` and `while` loops
-- Lists and dictionaries
-- Functions
-- `try` and `except`
+- Python command-line interface
+- Functions for ingredient and recipe-cost calculations
+- Lists and dictionaries for organising recipe data
+- Input validation and error handling
+- Support for comma and full-stop decimal input
+- pytest tests for the main calculations
 
 ## Run the program
 
@@ -54,29 +48,26 @@ python recipe_cost_calculator.py
 
 ## Run the tests
 
-The tests use pytest:
+Install pytest if needed:
+
+```bash
+python -m pip install pytest
+```
+
+Run:
 
 ```bash
 python -m pytest
 ```
 
-The project has six tests for ingredient costs, total cost, cost per portion,
-and the most expensive ingredient.
+The project includes six tests covering ingredient cost, total cost, cost per portion and identification of the most expensive ingredient.
 
-## Learning notes
+## Calculation notes
 
-See [LEARNING_NOTES.md](LEARNING_NOTES.md) for a simple explanation
-of the formula, data structures, functions, input validation, and tests.
+See [LEARNING_NOTES.md](LEARNING_NOTES.md) for more information about the formula, data structures, functions, input validation and tests.
 
 ## Limitations
 
-This is intentionally a small beginner project. Recipes are not saved after the
-program closes, and all ingredient quantities must use the same unit as their
-package quantity.
-
-## Possible future improvements
-
-- Save recipes to a JSON file
-- Edit or delete ingredients
-- Add a simple Flask webpage
-- Add a suggested selling price
+- Recipes are kept only for the active program session
+- Recipes are not saved after the program closes
+- Ingredient quantities must use the same unit as their package quantity
