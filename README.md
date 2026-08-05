@@ -64,7 +64,6 @@ The project includes six tests covering ingredient cost, total cost, cost per po
 
 ## Calculation notes
 
-```markdown
 See [PROJECT_NOTES.md](PROJECT_NOTES.md) for details about the calculations, data structure, program flow, validation and tests.
 
 ## Limitations
