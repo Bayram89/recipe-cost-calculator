@@ -1,85 +1,62 @@
-# Learning Notes
+# Project Notes
 
-These notes explain the main parts of the Recipe Cost Calculator in simple
-language.
+## Ingredient cost calculation 
 
-## The ingredient cost formula
-
-The program first calculates the cost of one unit:
+The ingredient cost is calculated from the package price, package quantity and quantity used:
 
 ```text
 cost per unit = package price / package quantity
-```
-
-It then calculates the cost of the quantity used:
-
-```text
 ingredient cost = cost per unit * quantity used
-```
 
 Example:
+Package quantity: 1,000 g
+Package price: 20 DKK
+Quantity used: 250 g
 
-```text
-A 1,000 g bag of flour costs 20 DKK.
-The recipe uses 250 g.
 20 / 1000 * 250 = 5 DKK
-```
 
-## How ingredients are stored
+## Data structure
 
-One ingredient is stored in a dictionary:
-
-```python
+Each ingredient is represented by a dictionary:
 ingredient = {
     "name": "Flour",
     "quantity_used": 250,
     "unit": "g",
     "cost": 5,
 }
-```
 
-All ingredient dictionaries are stored in a list:
-
-```python
+The ingredient dictionaries are stored in a list:
 ingredients = []
 ingredients.append(ingredient)
-```
 
-## What the functions do
+## Main functions
 
-- `calculate_ingredient_cost()` calculates the cost of the amount used.
-- `calculate_total_cost()` adds all ingredient costs together.
-- `calculate_cost_per_portion()` divides the total cost by the portions.
-- `find_most_expensive_ingredient()` finds the highest ingredient cost.
-- `get_text()` prevents empty text input.
-- `get_positive_number()` accepts positive prices and quantities.
-- `get_positive_whole_number()` accepts whole-number counts.
-- `main()` controls the order in which the program runs.
+calculate_ingredient_cost() calculates the cost of the quantity used
+calculate_total_cost() adds the ingredient costs
+calculate_cost_per_portion() divides the total cost by the number of portions
+find_most_expensive_ingredient() finds the ingredient with the highest cost
+get_text() prevents empty text input
+get_positive_number() validates prices and quantities
+get_positive_whole_number() validates whole-number input
+main() controls the program flow
 
-## How the program runs
+## Program flow
 
-1. Ask for the recipe name.
-2. Ask for the number of portions and ingredients.
-3. Use a loop to collect every ingredient.
-4. Store each ingredient dictionary in a list.
-5. Calculate the total and cost per portion.
-6. Find the most expensive ingredient.
-7. Print the recipe summary.
+1. Ask for the recipe name
+2. Ask for the number of portions and ingredients
+3. Collect and validate the ingredient information
+4. Store each ingredient in the list
+5. Calculate the total cost and cost per portion
+6. Identify the most expensive ingredient
+7. Display the recipe summary
 
 ## Input validation
 
-The program uses `while True` to repeat a question until the input is valid.
-
-`try` and `except` prevent the program from crashing when text is entered where
-a number is expected.
+The input functions repeat their questions until valid values are entered. Number validation prevents invalid text from stopping the program and accepts both commas and full stops in decimal values.
 
 ## Tests
 
-The tests use small example values and `assert` to compare the actual result
-with the expected result.
+The pytest tests compare calculation results with expected values.
 
 Run them with:
-
-```bash
 python -m pytest
-```
